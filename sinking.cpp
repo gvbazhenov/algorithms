@@ -17,9 +17,9 @@ int main()
     for (size_t iter = 0; iter != defaultSize; iter++) // random writing
         vector.push_back(distribution(generator));
 
-    printSequence(vector); // printing the original sequence
-    sinkingSort(vector);   // proceeding the sorting
-    printSequence(vector); // printing the sorted sequence
+    printSequence(vector);
+    sinkingSort(vector);
+    printSequence(vector);
 
     return 0;
 }
