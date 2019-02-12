@@ -48,10 +48,10 @@ void sinkingSort(std::vector<int> &vector)
                 vector[inIter] = vector[inIter + 1];
                 vector[inIter + 1] = temp;
                 swapped = true;
+                bias++;
             }
         }
-
-        if (swapped) bias++; // checking the opportunity to increase bias
-        else break;          // observing the case of sorted sequence
+        if (!swapped) break; // observing the case of sorted sequence
     }
 }
+
