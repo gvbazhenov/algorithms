@@ -20,3 +20,4 @@ sequence = [random.randint(1, 100) for i in range(0, 10)]
 print(sequence)
 sinking_sort(sequence)
 print(sequence)
+
