@@ -14,7 +14,7 @@ int main()
     std::random_device generator;
     std::uniform_int_distribution<int> distribution(1, 100);
 
-    for (size_t iter = 0; iter != defaultSize; iter++) // random writing
+    for (size_t iter = 0; iter != defaultSize; iter++)
         vector.push_back(distribution(generator));
 
     printSequence(vector);
@@ -42,7 +42,7 @@ void sinkingSort(std::vector<int> &vector)
         swapped = false;
         for (size_t inIter = 0; inIter != vector.size() - 1 - outIter; inIter++)
         {
-            if (vector[inIter] > vector[inIter + 1]) // checking the opportunity to swap elements
+            if (vector[inIter] > vector[inIter + 1])
             {
                 temp = vector[inIter];
                 vector[inIter] = vector[inIter + 1];
@@ -51,7 +51,7 @@ void sinkingSort(std::vector<int> &vector)
                 bias++;
             }
         }
-        if (!swapped) break; // observing the case of sorted sequence
+        if (!swapped) break;
     }
 }
 
