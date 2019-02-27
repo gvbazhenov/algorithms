@@ -41,12 +41,12 @@ void insertionSort(std::vector<int> &vector)
         key = vector[outIter];
         inIter = outIter - 1;
 
-        while (inIter > -1 && vector[inIter] > key) // checking the opportunity to shift elements
+        while (inIter > -1 && vector[inIter] > key)
         {
             vector[inIter + 1] = vector[inIter];
             inIter--;
         }
-        vector[inIter + 1] = key; // inserting
+        vector[inIter + 1] = key;
     }
 }
 
