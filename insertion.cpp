@@ -15,7 +15,7 @@ int main()
     std::random_device generator;
     std::uniform_int_distribution<int> distribution(1, 100);
 
-    for (size_t iter = 0; iter != defaultSize; iter++) // random writing
+    for (size_t iter = 0; iter != defaultSize; iter++)
         vector.push_back(distribution(generator));
 
     printSequence(vector);
