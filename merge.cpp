@@ -1,7 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <random>
+
 void mergeSort(std::vector<int> &, int, int);
 void printSequence(std::vector<int> &);
 void merge(std::vector<int> &, int, int, int);
-
 
 int main()
 {
