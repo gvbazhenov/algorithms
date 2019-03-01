@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <iterator>
 #include <random>
 
 void sinkingSort(std::vector<int> &);
