@@ -46,25 +46,23 @@ void mergeSort(std::vector<int> &vector, int left, int right)
 
 void merge(std::vector<int> &vector, int left, int split, int right)
 {
-    std::vector<int>* tempVector = new std::vector<int>;
+    std::vector<int> tempVector;
     int leftIter = left, rightIter = split + 1;
 
     while (leftIter < split + 1 && rightIter < right + 1)
     {
         if (vector[leftIter] < vector[rightIter])
-            tempVector->push_back(vector[leftIter++]);
+            tempVector.push_back(vector[leftIter++]);
         else
-            tempVector->push_back(vector[rightIter++]);
+            tempVector.push_back(vector[rightIter++]);
     }
 
     while (leftIter < split + 1)
-        tempVector->push_back(vector[leftIter++]);
+        tempVector.push_back(vector[leftIter++]);
     while (rightIter < right + 1)
-        tempVector->push_back(vector[rightIter++]);
+        tempVector.push_back(vector[rightIter++]);
 
     for (int iter = 0; iter < right - left + 1; iter++)
-        vector[left + iter] = (*tempVector)[iter];
-
-    delete tempVector;
+        vector[left + iter] = tempVector[iter];
 }
 
