@@ -37,13 +37,13 @@ void iterativePreOrder(TreeNode* root) {
     if (root == nullptr)
         return;
     std::stack<TreeNode*> traversalStack;
-    stack.push(root);
-    TreeNode* currentNode = nullptr;
+    TreeNode* currentNode = root;
+    traversalStack.push(currentNode);
     
     while (!traversalStack.empty()) {
         currentNode = traversalStack.top();
+        visitNode(currentNode);
         traversalStack.pop();
-        visit(currentNode);
         if (currentNode->right != nullptr)
             traversalStack.push(currentNode->right);
         if (currentNode->left != nullptr)
@@ -61,8 +61,8 @@ void iterativeInOrder(TreeNode* root) {
             currentNode = currentNode->left;
         } else {
             currentNode = traversalStack.top();
+            visitNode(currentNode);
             traversalStack.pop();
-            visit(currentNode);
             currentNode = currentNode->right;
         }
     }
@@ -70,9 +70,9 @@ void iterativeInOrder(TreeNode* root) {
 
 void iterativePostOrder(TreeNode* root) {
     std::stack<TreeNode*> traversalStack;
-    TreeNode* currentNode = root;
-    TreeNode* topNode = nullptr;
     TreeNode* lastVisitedNode = nullptr;
+    TreeNode* topNode = nullptr;
+    TreeNode* currentNode = root;
     
     while (!traversalStack.empty() or currentNode != nullptr) {
         if (currentNode != nullptr) {
@@ -83,11 +83,27 @@ void iterativePostOrder(TreeNode* root) {
             if (topNode->right != nullptr and lastVisitedNode != topNode->right)
                 currentNode = topNode->right;
             else {
-                visit(topNode);
+                visitNode(topNode);
                 lastVisitedNode = topNode;
-                stack.pop();
+                traversalStack.pop();
             }
         }
+    }
+}
+
+void iterativeLevelOrder(TreeNode* root) {
+    std::deque<TreeNode*> traversalQueue;
+    TreeNode* currentNode = root;
+    traversalQueue.push_back(currentNode);
+    
+    while (!traversalQueue.empty()) {
+        currentNode = traversalQueue.front();
+        visitNode(currentNode);
+        traversalQueue.pop_front();
+        if (currentNode->left != nullptr)
+            traversalQueue.push_back(currentNode->left);
+        if (currentNode->right != nullptr)
+            traversalQueue.push_back(currentNode->right);
     }
 }
 
