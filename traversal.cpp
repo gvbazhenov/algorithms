@@ -55,7 +55,7 @@ void iterativeInOrder(TreeNode* root) {
     std::stack<TreeNode*> traversalStack;
     TreeNode* currentNode = root;
     
-    while (!traversalStack.epmty() or currentNode != nullptr) {
+    while (!traversalStack.empty() or currentNode != nullptr) {
         if (currentNode != nullptr) {
             traversalStack.push(currentNode);
             currentNode = currentNode->left;
@@ -74,7 +74,7 @@ void iterativePostOrder(TreeNode* root) {
     TreeNode* topNode = nullptr;
     TreeNode* lastVisitedNode = nullptr;
     
-    while (!traversalStack.epmty() or currentNode != nullptr) {
+    while (!traversalStack.empty() or currentNode != nullptr) {
         if (currentNode != nullptr) {
             traversalStack.push(currentNode);
             currentNode = currentNode->left;
