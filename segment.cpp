@@ -17,6 +17,7 @@ SegmentTree::SegmentTree(std::vector<int>& source) {
         data[iter] = data[iter - temp];
     for (int iter = temp - 1; iter > 0; iter--)
         data[iter] = std::min(data[2 * iter], data[2 * iter + 1]);
+    *data.begin() = Infinity;
 }
 
 int SegmentTree::revealMinValue(int left, int right) {
