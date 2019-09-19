@@ -74,7 +74,7 @@ void iterativePostOrder(TreeNode* root) {
     TreeNode* topNode = nullptr;
     TreeNode* lastVisitedNode = nullptr;
     
-    while (!traversalStack.epmty() or currentNode != nullptr)
+    while (!traversalStack.epmty() or currentNode != nullptr) {
         if (currentNode != nullptr) {
             traversalStack.push(currentNode);
             currentNode = currentNode->left;
@@ -88,5 +88,6 @@ void iterativePostOrder(TreeNode* root) {
                 stack.pop();
             }
         }
+    }
 }
 
