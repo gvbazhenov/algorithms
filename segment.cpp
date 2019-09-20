@@ -3,7 +3,7 @@ const int Infinity = 1000;
 struct SegmentTree {
     std::vector<int> data;
     SegmentTree(std::vector<int>& source);
-    int revealMinValue(int left, int right);
+    int revealValue(int left, int right);
     void update(int position, int value);
 };
 
@@ -20,7 +20,7 @@ SegmentTree::SegmentTree(std::vector<int>& source) {
     data[0] = Infinity;
 }
 
-int SegmentTree::revealMinValue(int left, int right) {
+int SegmentTree::revealValue(int left, int right) {
     int answer = Infinity;
     int temp = (int) data.size() / 2;
     left += temp; right += temp;
