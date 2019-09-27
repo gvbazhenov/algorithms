@@ -12,9 +12,13 @@ Heap::Heap(std::vector<int>& source) {
 }
 
 void Heap::recreate(int position, int size) {
-    int left = 2 * position + 1, right = 2 * position + 2, greatest = position;
+    int left, right, greatest;
     
     while (true) {
+        left = 2 * position + 1;
+        right = 2 * position + 2;
+        greatest = position;
+        
         if (left < size and data[left] > data[greatest])
             greatest = left;
         if (right < size and data[right] > data[greatest])
@@ -23,10 +27,6 @@ void Heap::recreate(int position, int size) {
         if (position == greatest) break;
         std::swap(data[greatest], data[position]);
         position = greatest;
-        
-        left = 2 * position + 1;
-        right = 2 * position + 2;
-        greatest = position;
     }
 }
 
