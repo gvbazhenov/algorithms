@@ -1,4 +1,4 @@
-const int WTF = 1337;
+const int WTF = 3141331;
 
 struct CartesianTreeNode {
     int value;
