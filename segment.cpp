@@ -2,12 +2,12 @@ const int Infinity = 1000;
 
 struct SegmentTree {
     std::vector<int> data;
-    SegmentTree(std::vector<int>& source);
-    int revealValue(int left, int right);
+    SegmentTree(std::vector<int> source);
+    int reveal(int left, int right);
     void update(int position, int value);
 };
 
-SegmentTree::SegmentTree(std::vector<int>& source) {
+SegmentTree::SegmentTree(std::vector<int> source) {
     data = source;
     int temp = 1;
     while (temp < source.size()) temp *= 2;
@@ -17,10 +17,9 @@ SegmentTree::SegmentTree(std::vector<int>& source) {
         data[iter] = data[iter - temp];
     for (int iter = temp - 1; iter > 0; iter--)
         data[iter] = std::min(data[2 * iter], data[2 * iter + 1]);
-    data[0] = Infinity;
 }
 
-int SegmentTree::revealValue(int left, int right) {
+int SegmentTree::reveal(int left, int right) {
     int answer = Infinity;
     int temp = (int) data.size() / 2;
     left += temp; right += temp;
